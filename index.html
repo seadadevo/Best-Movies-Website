@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <title>Movie App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <header class="bg-[#373b69] p-[20px] flex items-center justify-between">
+      <div class="text-[#22254b] text-2xl font-semibold">
+        <a href="/" class="block"
+          ><span class="text-[30px] font-bold text-[#FFD700]">B</span>est
+          <span class="text-[#FFD700] font-bold text-[30px]">M</span>ovies</a
+        >
+      </div>
+      <input
+        class="rounded-[50px] bg-transparent border border-[#22254b] border-2 outline-none p-[10px] max-w-full w-[150px] text-[#fff] md:w-[270px] placeholder-[#7378c5] focus:bg-[#22254b] focus:placeholder-[#373b69] transition-all"
+        type="text"
+        placeholder="Search"
+      />
+    </header>
+
+    <div class="pagination flex justify-center gap-4 p-4">
+      <button
+        id="prev"
+        class="bg-[#373b69] text-white px-4 py-2 rounded disabled:opacity-50"
+      >
+        Previous
+      </button>
+      <span id="page" class="text-white flex items-center">1</span>
+      <button id="next" class="bg-[#373b69] text-white px-4 py-2 rounded">
+        Next
+      </button>
+    </div>
+
+
+    <div
+      class="container grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-[20px] ml-[20px]"
+    ></div>
+
+
+    
+    <!-- ! Modal -->
+   
+    <div id="movieModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+      <div
+        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 
+        text-center sm:block sm:p-0"
+      >
+        
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+          <div class="absolute inset-0 bg-black opacity-75"></div>
+        </div>
+
+       
+        <div
+          class="inline-block align-bottom bg-[#373b69] rounded-lg text-left overflow-hidden
+           shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full"
+        >
+          <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div
+                id="modalClose"
+                class="absolute top-2 right-2 cursor-pointer text-white text-2xl"
+              >
+                &times;
+              </div>
+              <div
+                id="movieDetails"
+                class="mt-3 text-center sm:mt-0 sm:text-left w-full"
+              >
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

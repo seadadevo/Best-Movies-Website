@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #22254b;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+
+  .movie {
+    transition: transform 0.3s ease;
+  }
+
+  .movie:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Scrollbar styling for overview */
+  .card1::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .card1::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .card1::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .card1::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
