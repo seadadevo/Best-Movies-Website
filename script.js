@@ -14,8 +14,22 @@ const SEARCH_API =
   let totalPages = 1;
   let currentApiUrl = API_URL;
 
+  function createPlaceholder(count) {
+    let placeholder = "";
+    for (let i = 0; i < count; i++) {
+      placeholder += `
+        <div class = "animation-pulse bg-gray-800 p-4 rounded shadow-md">
+           <div class="h-60 bg-gray-700 rounded mb-4"></div>
+        <div class="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
+        <div class="h-4 bg-gray-700 rounded w-1/2"></div>
+        </div>
+      `
+    }
+    return placeholder;
+  }
 const getMovies = async (Api) => {
-  container.innerHTML = "Loading...";
+  // container.innerHTML = "Loading...";
+  container.innerHTML = createPlaceholder(12)
   try {
     const res = await fetch(Api);
     const data = await res.json();
@@ -127,7 +141,8 @@ const showMovieDetails = async (movieId) => {
   const detailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=3fd2be6f0c70a2a598f084ddfb75487c&append_to_response=credits,videos`;
 
   try {
-    movieDetails.innerHTML = '<div class="text-white text-center py-10">Loading...</div>';
+    // movieDetails.innerHTML = '<div class="text-white text-center py-10">Loading...</div>';
+    movieDetails.innerHTML = createPlaceholder(1)
     movieModal.classList.remove('hidden');
      // ! Prevent scrolling
     document.body.style.overflow = 'hidden';
@@ -234,5 +249,19 @@ modalClose.addEventListener('click', () => {
 });
 
 
+const backToTopBtn = document.getElementById("backToTop");
 
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.remove("hidden");
+  } else {
+    backToTopBtn.classList.add("hidden");
+  }
+});
 
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
